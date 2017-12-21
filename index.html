@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Rock Paper Scissors Multiplayer!</title>
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/css/style.css" rel="stylesheet">
+		<link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon" />
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="page-header">
+					<h1>
+					Rock, Paper, Scissors <small>Now Multiplayer!</small>
+					</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-5">
+					<div class="thumbnail" id="player">
+						<img alt="Player's Choice" src="assets/images/player.png">
+						<div class="caption">
+							<h3>
+							Player
+							</h3>
+							<div class="progress">
+								<div class="progress-bar progress-success" role="progressbar" id="PlayerWinsLosses" style="width:100%"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-2">
+					<div class="btn-group-vertical" id="actions">
+						
+						<button class="btn btn-default" type="button" id="rock" value="r"><i class="fa fa-hand-rock-o" aria-hidden="true"></i> Rock
+						</button>
+						<button class="btn btn-default" type="button" id="paper" value="p">
+						<i class="fa fa-hand-paper-o" aria-hidden="true"></i> Paper
+						</button>
+						<button class="btn btn-default" type="button" id="scissors" value="s">
+						<i class="fa fa-hand-scissors-o" aria-hidden="true"></i> Scissors
+						</button>
+						<!-- Can add Lizard/Spock in the future. Font Awesome has them! -->
+					</div>
+				</div>
+				<div class="col-sm-5">
+					<div class="thumbnail" id="enemy">
+						<img alt="Opponent's Choice" src="assets/images/enemy.png">
+						<div class="caption">
+							<h3>
+							Enemy
+							</h3>
+							<div class="progress">
+								<div class="progress-bar progress-success" role="progressbar" id="OpponentWinsLosses" style="width:100%"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="tabbable" id="tabs">
+						<ul class="nav nav-tabs">
+							<li class="active" id="login-tab">
+								<a href="#login" data-toggle="tab">Sign Up/Login</a>
+							</li>
+							<li id="info-tab">
+								<a href="#info" data-toggle="tab">Game Info</a>
+							</li>
+							<li id="chat-tab">
+								<a href="#chat" data-toggle="tab">Chat</a>
+							</li>
+							<li>
+								<a href=".tab-content" data-toggle="collapse">Collapse</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="login">
+								<div class="form-group">
+									<label for="usr">Name:</label>
+									<input type="text" class="form-control" id="usr">
+								</div>
+								<div class="form-group">
+									<label for="pwd">Password:</label>
+									<input type="password" class="form-control" id="pwd">
+								</div>
+							</div>
+							<div class="tab-pane" id="info">
+								<p>
+									Game Events will show here!
+								</p>
+								<div class="row">
+									
+								</div>
+							</div>
+							<div class="tab-pane" id="chat">
+								<dl>
+									<dt>
+									Chat Name
+									</dt>
+									<dd>
+									00:00	Something something something
+									</dd>
+									<dt>
+									Euismod
+									</dt>
+									<dd>
+									Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+									</dd>
+									<dd>
+									Donec id elit non mi porta gravida at eget metus.
+									</dd>
+									<dt>
+									Malesuada porta
+									</dt>
+									<dd>
+									Etiam porta sem malesuada magna mollis euismod.
+									</dd>
+									<dt>
+									Felis euismod semper eget lacinia
+									</dt>
+									<dd>
+									Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+									</dd>
+								</dl>
+								<div class="form-group footer navbar-fixed-bottom">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="input-group">
+												<input type="text" class="form-control" placeholder="Talk to your opponent" id="chatText">
+												<span class="btn btn-default input-group-addon" type = "button" id="chatEnter">Enter!</span>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/bootstrap.min.js"></script>
+			<script src="https://use.fontawesome.com/6fcb742d07.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+			<script>
+				// Initialize Firebase
+				var config = {
+				apiKey: "AIzaSyApMFLn_RRAukt2zBDEY0XVP4imbbev-i8",
+				authDomain: "rpsm-2b6f4.firebaseapp.com",
+				databaseURL: "https://rpsm-2b6f4.firebaseio.com",
+				projectId: "rpsm-2b6f4",
+				storageBucket: "rpsm-2b6f4.appspot.com",
+				messagingSenderId: "518826209133"
+				};
+				firebase.initializeApp(config);
+			</script>
+			<!-- Link to Moment.js should go here -->
+			<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+			<script src="assets/js/scripts.js"></script>
+		</body>
+	</html>
