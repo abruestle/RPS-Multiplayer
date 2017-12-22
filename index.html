@@ -65,7 +65,7 @@
 					<div class="tabbable" id="tabs">
 						<ul class="nav nav-tabs">
 							<li class="active" id="login-tab">
-								<a href="#login" data-toggle="tab">Sign Up/Login</a>
+								<a href="#login" data-toggle="tab">Join!</a>
 							</li>
 							<li id="info-tab">
 								<a href="#info" data-toggle="tab">Game Info</a>
@@ -79,14 +79,17 @@
 						</ul>
 						<div class="tab-content">
 							<div class="tab-pane active" id="login">
-								<div class="form-group">
-									<label for="usr">Name:</label>
-									<input type="text" class="form-control" id="usr">
+								<br>
+								<div class="input-group">
+									<input type="text" class="form-control" id="chatText" placeholder="What is your name?" aria-describedby="nameEnter">
+									<span class="input-group-addon btn btn-default" id="nameEnter">Join!</span>
+								</div><br>
+								<!-- <div id="stats">You have won ___ games and lost ___ games.</div> -->
+								<br>
+								<div class="input-group">
+									<span class="btn btn-default" type = "button" id="joinGame">Join current Game!</span>
 								</div>
-								<div class="form-group">
-									<label for="pwd">Password:</label>
-									<input type="password" class="form-control" id="pwd">
-								</div>
+								<div id="loginComments"></div>
 							</div>
 							<div class="tab-pane" id="info">
 								<p>
