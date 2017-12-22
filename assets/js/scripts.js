@@ -58,7 +58,7 @@ var game = {
 		game.players = snapshot.val().players;
 		
 	},
-	loadFirebaseEnemy: function() {
+	loadFirebaseEnemy: function(snapshot) {
 		//Loads name and wins/losses directly into html
 		game.enemy.name = snapshot.val().name;
 		game.enemy.wins = snapshot.val().wins;
@@ -102,20 +102,19 @@ var game = {
 		//Adds user as a new person
 		game.onlinePeople++;
 		dataRef.ref().push({
-
-	        player.name: game.player.name,
-			name: "",
-			UID: 0,
-			//All time game info
-			wins: 0,
-			losses: 0,
-			ties: 0,
-			//current game information:
-			lastChoice: -1,
-			lastChat: "",
-			lastChatTime: 0,
-			//Initializes as not logged in (0), as initially you are not logged in
-			loggedIn: 0,
+	        // player.name: game.player.name,
+				// name: "",
+				// UID: 0,
+				// //All time game info
+				// wins: 0,
+				// losses: 0,
+				// ties: 0,
+				// //current game information:
+				// lastChoice: -1,
+				// lastChat: "",
+				// lastChatTime: 0,
+				// //Initializes as not logged in (0), as initially you are not logged in
+				// loggedIn: 0,
       	});
 		// database.ref().set({
 		// 	users: game.player1,
@@ -178,6 +177,7 @@ var game = {
 
 }
 
+//database updates
 database.ref().on("value", function(snapshot) {
   // We are now inside our .on function...
 
@@ -185,7 +185,8 @@ database.ref().on("value", function(snapshot) {
   console.log(snapshot.val());
   // This "snapshot" allows the page to get the most current values in firebase.
 
-
+  game.loadFirebaseGame(snapshot);
+  game.loadFirebaseEnemy(loadFirebaseEnemy);
 // If any errors are experienced, log them to console.
 }, function(errorObject) {
   console.log("The read failed: " + errorObject.code);
